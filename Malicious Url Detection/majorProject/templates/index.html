@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.ctfassets.net/bdm7zitnfa4i/pDHYKU8WbVpNtIm6966t9/8f9f5a3135b3830ee3a193132e5e7ceb/hacker-at-night.jpg?w=1800&fl=progressive&q=50');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: orange;
+            margin-top: 20px; /* Adjusted margin for the title */
+            font-size: 50px;
+        }
+
+        form {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        label {
+            color: red;
+            font-size: 28px;
+            margin-right: 10px;
+        }
+
+        #inputText {
+            font-size: 16px;
+            padding: 10px;
+            width: 500px;
+        }
+
+        input[type="submit"] {
+            font-size: 20px;
+            padding: 15px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+        }
+        #receivedTextContainer {
+            margin-top: 20px;
+            font-size: 40px;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Malicious URL Detector</h1>
+    <form action="/process_text" method="post">
+        <label for="inputText"><b>Enter the URL:</b></label>
+        <br>
+        <input type="text" id="inputText" name="inputText" required>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    {% if input_text %}
+    <div id="receivedTextContainer">
+        Provided URL: {{ input_text }} is {{ output_text }}.
+    </div>
+    {% endif %}
+</body>
+</html>
+</html>
